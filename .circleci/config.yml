@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs: # a basic unit of work in a run
-  test: # your job name
+  myTestOnWalmart: # your job name
     macos:
       xcode: 14.1.0 # indicate our selected version of Xcode
     steps: # a series of commands to run
@@ -12,7 +12,7 @@ jobs: # a basic unit of work in a run
 
   build: 
     macos:
-      xcode: 11.0 # indicate our selected version of Xcode
+      xcode: 14.1.0 # indicate our selected version of Xcode
     steps: 
       - checkout
       - run:
@@ -30,7 +30,7 @@ jobs: # a basic unit of work in a run
 workflows:
   test_build:
     jobs:
-      - test
+      - myTestOnWalmart
       - build:
           requires:
-            - test
+            - myTestOnWalmart
